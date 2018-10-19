@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>我的备课</title>
+    <link href="../css/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div id="indexMain" class="mianScroll bgmain">
+        <div class="topBox">
+            <div class="searchBox">
+                <el-input suffix-icon="el-icon-search" v-model="inputnr" placeholder="按照教案名称/作者搜素"></el-input>
+            </div>
+            <div class="topNav"><span>我的备课</span><span>学校共享</span><span>区县共享</span><span>我的收藏</span></div>
+        </div>
+
+        <div class="lessonList">
+            <ul>
+                <li>
+                    <div class="lessonImg"><img src="../images/runtu.jpg" alt="少年闰土"></div>
+                    <div class="lessonContent">
+                        <h4>少年闰土——鲁迅</h4>
+                        <p class="synopsis"><span><i class="el-icon-date"></i>王艳</span><span><i class="el-icon-date"></i>2018-09-19</span><em>已校共享</em></p>
+                        <div class="operate"><a><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li>
+                    <div class="lessonImg"><img src="../images/runtu.jpg" alt="少年闰土"></div>
+                    <div class="lessonContent">
+                        <h4>少年闰土——鲁迅</h4>
+                        <p class="synopsis"><span><i class="el-icon-date"></i>王艳</span><span><i class="el-icon-date"></i>2018-09-19</span><em>已校共享</em></p>
+                        <div class="operate"><a><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
+                    </div>
+                    <div class="clear"></div>
+                </li>
+                <li>
+                        <div class="lessonImg"><img src="../images/runtu.jpg" alt="少年闰土"></div>
+                        <div class="lessonContent">
+                            <h4>少年闰土——鲁迅</h4>
+                            <p class="synopsis"><span><i class="el-icon-date"></i>王艳</span><span><i class="el-icon-date"></i>2018-09-19</span><em>已校共享</em></p>
+                            <div class="operate"><a><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
+                        </div>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <div class="lessonImg"><img src="../images/runtu.jpg" alt="少年闰土"></div>
+                        <div class="lessonContent">
+                            <h4>少年闰土——鲁迅</h4>
+                            <p class="synopsis"><span><i class="el-icon-date"></i>王艳</span><span><i class="el-icon-date"></i>2018-09-19</span><em>已校共享</em></p>
+                            <div class="operate"><a><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
+                        </div>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                            <div class="lessonImg"><img src="../images/runtu.jpg" alt="少年闰土"></div>
+                            <div class="lessonContent">
+                                <h4>少年闰土——鲁迅</h4>
+                                <p class="synopsis"><span><i class="el-icon-date"></i>王艳</span><span><i class="el-icon-date"></i>2018-09-19</span><em>已校共享</em></p>
+                                <div class="operate"><a><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+                            <div class="lessonImg"><img src="../images/runtu.jpg" alt="少年闰土"></div>
+                            <div class="lessonContent">
+                                <h4>少年闰土——鲁迅</h4>
+                                <p class="synopsis"><span><i class="el-icon-date"></i>王艳</span><span><i class="el-icon-date"></i>2018-09-19</span><em>已校共享</em></p>
+                                <div class="operate"><a><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+
+                        <li>
+                                <div class="lessonImg"><img src="../images/runtu.jpg" alt="少年闰土"></div>
+                                <div class="lessonContent">
+                                    <h4>少年闰土——鲁迅</h4>
+                                    <p class="synopsis"><span><i class="el-icon-date"></i>王艳</span><span><i class="el-icon-date"></i>2018-09-19</span><em>已校共享</em></p>
+                                    <div class="operate"><a><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
+                                </div>
+                                <div class="clear"></div>
+                            </li>
+            </ul>
+        </div>
+
+        <div class="tcLayer">
+            <div class="closeBt"></div>
+            <div class="LayerTop"></div>
+            <div class="LayerCenter"></div>
+            <div class="LayerBottom"></div>
+        </div>
+
+    </div>
+    <script>
+        new Vue({
+            el:'#indexMain',
+            data:{
+                inputnr:''
+            },
+            mounted() {
+                this.firstPage();
+            },
+            methods:{
+                firstPage:function(){
+                    $(".topNav span").eq(0).addClass("on");
+                    $(".topNav span").click(function(){
+                        $(this).addClass("on").siblings().removeClass("on");
+                    })
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>
