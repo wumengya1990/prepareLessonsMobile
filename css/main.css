@@ -19,6 +19,11 @@ body,html{height:100%}
 /* 总容器 */
 .mianScroll{ position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto; overflow: hidden;}
 
+/* 定位 */
+.psnF{ position: fixed;}
+.psnR{ position: relative;}
+.psnA{ position: absolute; display: block;}
+.psnAC{ left: 0; top: 0; right: 0; bottom: 0; margin: auto;}
 
 /*********** 顶部内容 ***********/
 .topBox{ padding: 10px 10px 0; background: #FFFFFF; margin: 0 0 10px;}
@@ -56,7 +61,18 @@ body,html{height:100%}
 .appCenterList ul li p{ text-align: center; padding:5px 0 0;}
 
 /* 弹层页面 */
-.tcLayer{ position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto;}
-.tcLayer .LayerTop{}
-.tcLayer .Layerbottom{}
-.tcLayer .LayerTop{}
+.tcLayer{ position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto; z-index: 1000; background:rgba(0,0,0,0.3);}
+.tcLayerMain{ position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto; width:80%; height: 31rem; background: #FFFFFF; border-radius: 6px;}
+.tcLayerMain .LayerTop{ height:10rem; background:url(../images/start_03.png) no-repeat scroll center center #0096ff; border-radius: 6px 6px  0 0; background-size:100%;}
+.tcLayerMain .LayerTop dl{ width: 7rem; padding: 8px 0 0; margin: 0 auto; text-align: center;}
+.tcLayerMain .LayerTop dl dt{ width: 7rem; height: 7rem; background: #FFFFFF; border-radius: 50%; position: relative;}
+.tcLayerMain .LayerTop dl dt img{ width: 100%; height: 100%;}
+.tcLayerMain .LayerTop dl dd{ color: #FFFFFF; font-size: 1.2rem; padding:5px 0 0;}
+.tcLayerMain .LayerBottom{ height: 4rem; line-height: 4rem; border-top: 1px solid #eaeaea; top: auto; text-align: center;}
+.tcLayerMain .LayerCenter ul.selectList{ text-align: center;}
+.tcLayerMain .LayerCenter ul li{padding: 20px 0 0;}
+.tcLayerMain .LayerCenter ul li em i{ color:#F00; vertical-align: middle; padding: 0 5px 0 0;}
+.tcLayerMain .closeBt{ position: absolute; right:-10px; top:-10px;  width: 30px; height:30px; background: #0096ff; border-radius: 50%;}
+.tcLayerMain .closeBt em{ position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto; display: block; width:26px; height:26px; background: #FFFFFF; border-radius: 50%;}
+.tcLayerMain .closeBt em::before{ content:""; display: block; position: absolute; width: 2px; height: 16px; background: #0096ff;  left: 0; top: 0; right: 0; bottom: 0; margin: auto; border-radius: 50px; transform:rotate(45deg);}
+.tcLayerMain .closeBt em::after{ content:""; display: block; position: absolute; width: 2px; height: 16px; background: #0096ff;  left: 0; top: 0; right: 0; bottom: 0; margin: auto; border-radius: 50px; transform:rotate(-45deg);}

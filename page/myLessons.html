@@ -25,78 +25,58 @@
 
         <div class="lessonList">
             <ul>
-                <li>
-                    <div class="lessonImg"><img src="../images/runtu.jpg" alt="少年闰土"></div>
-                    <div class="lessonContent">
-                        <h4>少年闰土——鲁迅</h4>
-                        <p class="synopsis"><span><i class="el-icon-date"></i>王艳</span><span><i class="el-icon-date"></i>2018-09-19</span><em>已校共享</em></p>
-                        <div class="operate"><a><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li>
-                    <div class="lessonImg"><img src="../images/runtu.jpg" alt="少年闰土"></div>
-                    <div class="lessonContent">
-                        <h4>少年闰土——鲁迅</h4>
-                        <p class="synopsis"><span><i class="el-icon-date"></i>王艳</span><span><i class="el-icon-date"></i>2018-09-19</span><em>已校共享</em></p>
-                        <div class="operate"><a><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
-                    </div>
-                    <div class="clear"></div>
-                </li>
-                <li>
-                        <div class="lessonImg"><img src="../images/runtu.jpg" alt="少年闰土"></div>
+                <li v-for="course in courseList">
+                        <div class="lessonImg"><img v-bind:src="course.imgUrl"></div>
                         <div class="lessonContent">
-                            <h4>少年闰土——鲁迅</h4>
-                            <p class="synopsis"><span><i class="el-icon-date"></i>王艳</span><span><i class="el-icon-date"></i>2018-09-19</span><em>已校共享</em></p>
-                            <div class="operate"><a><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
+                            <h4>{{course.title}}</h4>
+                            <p class="synopsis"><span><i class="el-icon-date"></i>{{course.formPeo}}</span><span><i class="el-icon-date"></i>{{course.time}}</span><em>已校共享</em></p>
+                            <div class="operate"><a @click="tcshow =! tcshow"><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
                         </div>
                         <div class="clear"></div>
-                    </li>
-                    <li>
-                        <div class="lessonImg"><img src="../images/runtu.jpg" alt="少年闰土"></div>
-                        <div class="lessonContent">
-                            <h4>少年闰土——鲁迅</h4>
-                            <p class="synopsis"><span><i class="el-icon-date"></i>王艳</span><span><i class="el-icon-date"></i>2018-09-19</span><em>已校共享</em></p>
-                            <div class="operate"><a><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
-                        </div>
-                        <div class="clear"></div>
-                    </li>
-                    <li>
-                            <div class="lessonImg"><img src="../images/runtu.jpg" alt="少年闰土"></div>
-                            <div class="lessonContent">
-                                <h4>少年闰土——鲁迅</h4>
-                                <p class="synopsis"><span><i class="el-icon-date"></i>王艳</span><span><i class="el-icon-date"></i>2018-09-19</span><em>已校共享</em></p>
-                                <div class="operate"><a><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
-                            </div>
-                            <div class="clear"></div>
-                        </li>
-                        <li>
-                            <div class="lessonImg"><img src="../images/runtu.jpg" alt="少年闰土"></div>
-                            <div class="lessonContent">
-                                <h4>少年闰土——鲁迅</h4>
-                                <p class="synopsis"><span><i class="el-icon-date"></i>王艳</span><span><i class="el-icon-date"></i>2018-09-19</span><em>已校共享</em></p>
-                                <div class="operate"><a><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
-                            </div>
-                            <div class="clear"></div>
-                        </li>
-
-                        <li>
-                                <div class="lessonImg"><img src="../images/runtu.jpg" alt="少年闰土"></div>
-                                <div class="lessonContent">
-                                    <h4>少年闰土——鲁迅</h4>
-                                    <p class="synopsis"><span><i class="el-icon-date"></i>王艳</span><span><i class="el-icon-date"></i>2018-09-19</span><em>已校共享</em></p>
-                                    <div class="operate"><a><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
-                                </div>
-                                <div class="clear"></div>
-                            </li>
-            </ul>
+                </li>
+     </ul>
         </div>
 
-        <div class="tcLayer">
-            <div class="closeBt"></div>
-            <div class="LayerTop"></div>
-            <div class="LayerCenter"></div>
-            <div class="LayerBottom"></div>
+        <div class="tcLayer" v-show="tcshow">
+            <div class="tcLayerMain">
+                <div class="closeBt"><em class="psnA" @click="tcshow =! tcshow"></em></div>
+                <div class="LayerTop">
+                    <dl>
+                        <dt><img src="../images/gongnengTb_03.png"></dt>
+                        <dd>教学反思</dd>
+                    </dl>
+                </div>
+                <div class="LayerCenter">
+                    <ul class="selectList">
+                        <li>
+                            <em><i>*</i>年级</em>
+                            <el-select v-model="value" placeholder="请选择" size="small">
+                                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                            </el-select>
+                        </li>
+                        <li>
+                            <em><i>*</i>班级</em>
+                            <el-select v-model="value" placeholder="请选择" size="small">
+                                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                            </el-select>
+                        </li>
+                        <li>
+                            <em><i>*</i>日期</em>
+                            <el-select v-model="value" placeholder="请选择" size="small">
+                                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                            </el-select>
+                        </li>
+                        <li>
+                            <em><i>*</i>节次</em>
+                            <el-select v-model="value" placeholder="请选择" size="small">
+                                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                            </el-select>
+                        </li>
+                </ul>
+                        
+                </div>
+                <div class="LayerBottom psnA psnAC"><el-button style="width:80%;" type="primary">提交</el-button></div>
+            </div>
         </div>
 
     </div>
@@ -104,7 +84,55 @@
         new Vue({
             el:'#indexMain',
             data:{
-                inputnr:''
+                inputnr:'',
+                tcshow:false,
+                options: [{
+                    value: '选项1',
+                    label: '黄金糕'
+                    }, {
+                    value: '选项2',
+                    label: '双皮奶'
+                    }, {
+                    value: '选项3',
+                    label: '蚵仔煎'
+                    }, {
+                    value: '选项4',
+                    label: '龙须面'
+                    }, {
+                    value: '选项5',
+                    label: '北京烤鸭'
+                    }],
+                    courseList:[
+                        {
+                            imgUrl:'../images/runtu.jpg',
+                            title:'少年闰土——鲁迅1',
+                            formPeo:'王艳丽',
+                            time:'2018-10-22',
+                            shareState:true
+                        },
+                        {
+                            imgUrl:'../images/runtu.jpg',
+                            title:'少年闰土——鲁迅2',
+                            formPeo:'张洋',
+                            time:'2018-10-22',
+                            shareState:true
+                        },
+                        {
+                            imgUrl:'../images/runtu.jpg',
+                            title:'少年闰土——鲁迅3',
+                            formPeo:'王帅',
+                            time:'2018-10-22',
+                            shareState:true
+                        },
+                        {
+                            imgUrl:'../images/runtu.jpg',
+                            title:'少年闰土——鲁迅4',
+                            formPeo:'李炜',
+                            time:'2018-10-22',
+                            shareState:true
+                        }
+                    ],
+                    value: ''
             },
             mounted() {
                 this.firstPage();
