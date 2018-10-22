@@ -18,7 +18,10 @@
     <div id="indexMain" class="mianScroll bgmain">
         <div class="topBox">
             <div class="searchBox">
+                <el-button type="primary" style="float:right; margin: 0 0 0 10px;">筛选</el-button>
+                <div class="searchBoxN"> 
                 <el-input suffix-icon="el-icon-search" v-model="inputnr" placeholder="按照教案名称/作者搜素"></el-input>
+                </div>
             </div>
             <div class="topNav"><span>我的备课</span><span>学校共享</span><span>区县共享</span><span>我的收藏</span></div>
         </div>
@@ -29,8 +32,15 @@
                         <div class="lessonImg"><img v-bind:src="course.imgUrl"></div>
                         <div class="lessonContent">
                             <h4>{{course.title}}</h4>
-                            <p class="synopsis"><span><i class="el-icon-date"></i>{{course.formPeo}}</span><span><i class="el-icon-date"></i>{{course.time}}</span><em>已校共享</em></p>
-                            <div class="operate"><a @click="tcshow =! tcshow"><i class="el-icon-view"></i>查看反思</a><a><i class="el-icon-location-outline"></i>课程定位</a></div>
+                            <p class="synopsis"><span><i class="el-icon-date"></i>{{course.formPeo}}</span><span><i class="el-icon-date"></i>{{course.time}}</span>
+                                <em v-if="course.shareState == true" class="have">
+                                    已校共享
+                                </em>
+                                <em v-else>
+                                    未共享
+                                </em>
+                            </p>
+                            <div class="operate"><a @click="tcshow1 =! tcshow1"><i class="el-icon-view"></i>查看反思</a><a @click="tcshow =! tcshow"><i class="el-icon-location-outline"></i>课程定位</a></div>
                         </div>
                         <div class="clear"></div>
                 </li>
@@ -50,26 +60,26 @@
                     <ul class="selectList">
                         <li>
                             <em><i>*</i>年级</em>
-                            <el-select v-model="value" placeholder="请选择" size="small">
-                                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                            <el-select v-model="gradeValue" placeholder="请选择" size="small">
+                                <el-option v-for="item in gradeOptions" :key="item.value" :label="item.label" :value="item.value"></el-option>
                             </el-select>
                         </li>
                         <li>
                             <em><i>*</i>班级</em>
-                            <el-select v-model="value" placeholder="请选择" size="small">
-                                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                            <el-select v-model="classValue" placeholder="请选择" size="small">
+                                <el-option v-for="item in classOptions" :key="item.value" :label="item.label" :value="item.value"></el-option>
                             </el-select>
                         </li>
                         <li>
                             <em><i>*</i>日期</em>
-                            <el-select v-model="value" placeholder="请选择" size="small">
-                                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                            <el-select v-model="dataValue" placeholder="请选择" size="small">
+                                <el-option v-for="item in dataOptions" :key="item.value" :label="item.label" :value="item.value"></el-option>
                             </el-select>
                         </li>
                         <li>
                             <em><i>*</i>节次</em>
-                            <el-select v-model="value" placeholder="请选择" size="small">
-                                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
+                            <el-select v-model="jieciValue" placeholder="请选择" size="small">
+                                <el-option v-for="item in jieciOptions" :key="item" :label="item" :value="item"></el-option>
                             </el-select>
                         </li>
                 </ul>
@@ -79,6 +89,52 @@
             </div>
         </div>
 
+        <div class="tcLayer" v-show="tcshow1">
+            <div class="tcLayerMain">
+                <div class="closeBt"><em class="psnA" @click="tcshow1 =! tcshow1"></em></div>
+                <div class="LayerTop">
+                    <dl>
+                        <dt><img src="../images/gongnengTb_03.png"></dt>
+                        <dd>教学反思</dd>
+                    </dl>
+                </div>
+                <div class="LayerCenter">
+                    <div class="textareaBox">
+                        <textarea placeholder="请输入内容"></textarea>
+                    </div>
+                </div>
+                <div class="LayerBottom psnA psnAC"><el-button style="width:80%;" type="primary">提交</el-button></div>
+            </div>
+        </div>
+
+
+        <div class="tcLayerRight" v-show="tcshowR">
+            <div class="tcLayerMain">
+                    <el-collapse v-model="activeName" accordion>
+                            <el-collapse-item title="一致性 Consistency" name="1">
+                              <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+                              <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+                            </el-collapse-item>
+                            <el-collapse-item title="反馈 Feedback" name="2">
+                              <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
+                              <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+                            </el-collapse-item>
+                            <el-collapse-item title="效率 Efficiency" name="3">
+                              <div>简化流程：设计简洁直观的操作流程；</div>
+                              <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
+                              <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+                            </el-collapse-item>
+                            <el-collapse-item title="可控 Controllability" name="4">
+                              <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
+                              <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+                            </el-collapse-item>
+                          </el-collapse>
+
+                <div class="tcLayerRightBottom psnA psnAC"><el-button style="width:80%;" type="primary">提交</el-button></div>
+            </div>
+        </div>
+
+
     </div>
     <script>
         new Vue({
@@ -86,22 +142,31 @@
             data:{
                 inputnr:'',
                 tcshow:false,
-                options: [{
-                    value: '选项1',
-                    label: '黄金糕'
+                tcshow1:false,
+                tcshowR:true,
+                activeName: '1',
+                gradeOptions: [{
+                    value: 'gd1',
+                    label: '一年级'
                     }, {
-                    value: '选项2',
-                    label: '双皮奶'
+                    value: 'gd2',
+                    label: '二年级'
                     }, {
-                    value: '选项3',
-                    label: '蚵仔煎'
-                    }, {
-                    value: '选项4',
-                    label: '龙须面'
-                    }, {
-                    value: '选项5',
-                    label: '北京烤鸭'
+                    value: 'gd3',
+                    label: '三年级'
                     }],
+                    classOptions: [{
+                    value: 'bj1',
+                    label: '(1)班'
+                    }, {
+                    value: 'bj2',
+                    label: '(2)班'
+                    }, {
+                    value: 'bj3',
+                    label: '(3)班'
+                    }],
+                    dataOptions: [],
+                    jieciOptions: ['第一节','第二节','第三节','第四节','第五节','第六节','第七节','第八节'],
                     courseList:[
                         {
                             imgUrl:'../images/runtu.jpg',
@@ -115,14 +180,14 @@
                             title:'少年闰土——鲁迅2',
                             formPeo:'张洋',
                             time:'2018-10-22',
-                            shareState:true
+                            shareState:false
                         },
                         {
                             imgUrl:'../images/runtu.jpg',
                             title:'少年闰土——鲁迅3',
                             formPeo:'王帅',
                             time:'2018-10-22',
-                            shareState:true
+                            shareState:false
                         },
                         {
                             imgUrl:'../images/runtu.jpg',
@@ -132,7 +197,10 @@
                             shareState:true
                         }
                     ],
-                    value: ''
+                    gradeValue: '',
+                    classValue: '',
+                    dataValue: '',
+                    jieciValue: ''
             },
             mounted() {
                 this.firstPage();
