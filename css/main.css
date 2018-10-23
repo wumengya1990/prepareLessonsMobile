@@ -25,6 +25,20 @@ body,html{height:100%}
 .psnA{ position: absolute; display: block;}
 .psnAC{ left: 0; top: 0; right: 0; bottom: 0; margin: auto;}
 
+/* 显示隐藏 */
+.overHide{ overflow: hidden;}
+
+/* 头部功能条 */
+.topTool{ height:3rem; line-height: 3rem; text-align: center;
+    background: -webkit-linear-gradient(left, #00c8d0 , #0096ff); /* Safari 5.1 - 6.0 */
+    background: -moz-linear-gradient(right, #00c8d0, #0096ff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #00c8d0 , #0096ff); /* 标准的语法 */
+  }
+  .topTool em{ color: #FFFFFF; font-size: 1.2rem;}
+  .topTool a{ color: #FFFFFF;}
+  .topTool a:first-child{ float: left; margin: 0 0 0 10px;}
+  .topTool a:last-child{float: right; margin: 0 10px 0 0;}
+
 /*********** 顶部内容 ***********/
 .topBox{ padding: 10px 10px 0; background: #FFFFFF; margin: 0 0 10px;}
 .searchBox{ background: #F5F5F5}
@@ -63,7 +77,7 @@ body,html{height:100%}
 .appCenterList ul li p{ text-align: center; padding:5px 0 0;}
 
 /* 弹层页面 */
-.tcLayer{ position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto; z-index: 1000; background:rgba(0,0,0,0.3);}
+.tcLayer{ position: absolute; left: 0; top: 3rem; right: 0; bottom: 0; margin: auto; z-index: 1000; background:rgba(0,0,0,0.3);}
 .tcLayer .tcLayerMain{ position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto; width:80%; height: 31rem; background: #FFFFFF; border-radius: 6px;}
 .tcLayer .tcLayerMain .LayerTop{ height:10rem; background:url(../images/start_03.png) no-repeat scroll center center #0096ff; border-radius: 6px 6px  0 0; background-size:100%;}
 .tcLayer .tcLayerMain .LayerTop dl{ width: 7rem; padding: 8px 0 0; margin: 0 auto; text-align: center;}
@@ -81,6 +95,9 @@ body,html{height:100%}
 .tcLayer .tcLayerMain .closeBt em::before{ content:""; display: block; position: absolute; width: 2px; height: 16px; background: #0096ff;  left: 0; top: 0; right: 0; bottom: 0; margin: auto; border-radius: 50px; transform:rotate(45deg);}
 .tcLayer .tcLayerMain .closeBt em::after{ content:""; display: block; position: absolute; width: 2px; height: 16px; background: #0096ff;  left: 0; top: 0; right: 0; bottom: 0; margin: auto; border-radius: 50px; transform:rotate(-45deg);}
 
-.tcLayerRight{ position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin: auto; z-index: 1000; background:rgba(0,0,0,0.3);}
+.tcLayerRight{ position: absolute; left: 0; top: 3rem; right: 0; bottom: 0; margin: auto; z-index: 1000; background:rgba(0,0,0,0.3);}
 .tcLayerRight .tcLayerMain{ position: absolute; left: auto; top: 0; right: 0; bottom: 0; margin: auto; width:80%; height: 100%; background: #FFFFFF;}
+.tcLayerRight .tcLayerMain ul{ padding: 0 10px;}
+.tcLayerRight .tcLayerMain ul li{padding: 20px 0 0;}
+.tcLayerRight .tcLayerMain ul li em{ float: left; width: 5rem;}
 .tcLayerRight .tcLayerRightBottom{ height: 4rem; line-height: 4rem; border-top: 1px solid #eaeaea; top: auto; text-align: center;}
