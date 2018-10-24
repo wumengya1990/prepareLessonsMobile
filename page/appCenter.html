@@ -8,6 +8,7 @@
         <meta content="black" name="apple-mobile-web-app-status-bar-style">
         <meta content="telephone=no" name="format-detection">
         <title>我的应用</title>
+        <link href="../css/font/iconfont.css" rel="stylesheet" type="text/css">
         <link href="../css/main.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
         <script src="https://unpkg.com/vue/dist/vue.js"></script>
@@ -16,6 +17,10 @@
 </head>
 <body>
 <div id="indexMain" class="mianScroll bgmain">
+        <div class="topTool">
+                <a onclick="window.history.back(-1)"><i class="el-icon-arrow-left"></i>返回</a>
+                <em>我的应用</em>
+                </div>
         <div class="appCenterList">
                 <div class="topAD"><img src="../images/adImg.jpg"></div>
                 <div class="appCenterListN">
@@ -63,11 +68,11 @@
             </div>
             
             <div class="bottomNav">
-                <span>消息</span>
-                <span>联系人</span>
-                <span>事物</span>
-                <span>应用</span>
-                <span>我</span>
+                <span><i class="icon bpMobile bpMobile-xiaoxi"></i><em>消息</em></span>
+                <span><i class="icon bpMobile bpMobile-tongxunlu"></i><em>联系人</em></span>
+                <span><i class="icon bpMobile bpMobile-shijian"></i><em>事物</em></span>
+                <span class="on"><i class="icon bpMobile bpMobile-menu_app_down"></i><em>应用</em></span>
+                <span><i class="icon bpMobile bpMobile-wode"></i><em>我</em></span>
             </div>
 
         </div>
