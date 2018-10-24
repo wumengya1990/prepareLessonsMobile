@@ -56,7 +56,7 @@ body,html{height:100%}
 .lessonList ul li .lessonContent{ overflow: hidden;}
 .lessonList ul li .lessonContent h4{ color: #333333; font-size:1.2rem;}
 .lessonList ul li .lessonContent p.synopsis{ padding:7px 0 5px;}
-.lessonList ul li .lessonContent p.synopsis span{ color: #666666; padding: 0 15px 0 0; display: inline-block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; box-sizing: border-box;}
+.lessonList ul li .lessonContent p.synopsis span{ color: #666666; padding: 0 15px 0 0; display: inline-block; max-width: 50%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; box-sizing: border-box;}
 .lessonList ul li .lessonContent p.synopsis em{  background: #eaeaea; color: #666666; border-radius: 3px; padding: 1px 5px;}
 .lessonList ul li .lessonContent p.synopsis em.have{  background: #0096ff; color: #FFFFFF;}
 .lessonList ul li .lessonContent p.synopsis span i{color: #666666; font-size: 1.3rem; vertical-align: middle; margin: 0 5px 0 0;}
